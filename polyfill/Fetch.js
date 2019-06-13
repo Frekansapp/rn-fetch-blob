@@ -1,4 +1,6 @@
-import RNFetchBlob from '../index.js'
+//import RNFetchBlob from '../index.js'
+import {NativeModules} from 'react-native';
+const RNFetchBlob = NativeModules.RNFetchBlob
 import Log from '../utils/log.js'
 import fs from '../fs'
 import unicode from '../utils/unicode'
@@ -40,6 +42,7 @@ class RNFetchBlobFetchPolyfill {
           promise = Blob.build(body).then((b) => {
             blobCache = b
             options.headers['Content-Type'] = 'multipart/form-data;boundary=' + b.multipartBoundary
+            options.headers['content-type'] = 'multipart/form-data;boundary=' + b.multipartBoundary
             return Promise.resolve(RNFetchBlob.wrap(b._ref))
           })
         }
