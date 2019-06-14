@@ -677,8 +677,10 @@ class RNFetchBlobFS {
             WritableArray arg = Arguments.createArray();
             // File => list(): "If this abstract pathname does not denote a directory, then this method returns null."
             // We excluded that possibility above - ignore the "can produce NullPointerException" warning of the IDE.
-            for (String i : files) {
-                arg.pushString(i);
+            if(files!=null) {
+                for (String i : files) {
+                    arg.pushString(i);
+                }
             }
             promise.resolve(arg);
         } catch (Exception e) {
