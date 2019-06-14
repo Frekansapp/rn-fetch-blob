@@ -6,7 +6,6 @@
 import {
   NativeModules,
   DeviceEventEmitter,
-  NativeAppEventEmitter,
 } from 'react-native'
 
 const RNFetchBlob = NativeModules.RNFetchBlob
