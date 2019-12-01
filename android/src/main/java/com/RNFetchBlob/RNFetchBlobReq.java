@@ -259,7 +259,7 @@ public class RNFetchBlobReq extends BroadcastReceiver implements Runnable {
                 }
             }
 
-            if(method.equalsIgnoreCase("post") || method.equalsIgnoreCase("put") || method.equalsIgnoreCase("patch")) {
+            if(method.equalsIgnoreCase("post") || method.equalsIgnoreCase("put") || method.equalsIgnoreCase("patch") || method.equalsIgnoreCase("delete")) {
                 String cType = getHeaderIgnoreCases(mheaders, "Content-Type").toLowerCase();
 
                 if(rawRequestBodyArray != null) {
@@ -323,7 +323,7 @@ public class RNFetchBlobReq extends BroadcastReceiver implements Runnable {
                     break;
 
                 case WithoutBody:
-                    if(method.equalsIgnoreCase("post") || method.equalsIgnoreCase("put") || method.equalsIgnoreCase("patch"))
+                    if(method.equalsIgnoreCase("post") || method.equalsIgnoreCase("put") || method.equalsIgnoreCase("patch") || method.equalsIgnoreCase("delete"))
                     {
                         builder.method(method, RequestBody.create(null, new byte[0]));
                     }
